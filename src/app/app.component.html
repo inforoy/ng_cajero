@@ -1,0 +1,78 @@
+<div class="app-wrap">
+  <div class="app-logo">
+    <h3>LOGO</h3>
+  </div>
+  <div class="app-header">
+    <div class="toggle">
+      <a href="#" class="material-icons">view_list</a>
+    </div>
+    <div class="right">
+      <div class="date">
+        11-08-2017
+      </div>
+      <div class="user" class="material-icons">account_circle</div>
+    </div>
+  </div>
+  <div class="app-nav-bar">
+    <ul>
+      <li>
+        <a href="#"><span class="icon"></span>DASHBOARD</a>
+      </li>
+      <li>
+        <a href="#"><span class="icon"></span>OPERACIONES</a>
+        <ul>
+          <li><a href="#">Abono</a></li>
+          <li><a href="#">Deposito</a></li>
+          <li><a href="#">Retiro</a></li>
+          <li><a href="#">Aportes</a></li>
+          <li><a href="#">Transacciones</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#"><span class="icon"></span>CAJA</a>
+        <ul>
+          <li><a href="#">Apertura</a></li>
+          <li><a href="#">Cierre</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="app-content">
+    <div>
+      <select>
+        <option value="1">DNI</option>
+        <option value="1">CE</option>
+      </select>
+      <input type="text">
+      <button>Buscar</button>
+    </div>
+    <div>
+      <div>
+        <div class="row">
+          <label>Socio</label>
+          <input type="text">
+        </div>
+        <div class="row">
+          <label>Cuenta</label>
+          <input type="text">
+        </div>
+        <div class="row">
+          <label>Monto</label>
+          <div>
+            <input type="text">
+            <span>Soles</span>
+          </div>
+        </div>
+        <div class="row">
+          <button>Pagar</button>
+        </div>
+      </div>
+      <div>
+        <h2>Estado del aporte</h2>
+        <div class="estado-aporte">
+          <div *ngFor="let item "></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
