@@ -39,38 +39,51 @@
   </div>
   <div class="app-content">
     <div>
-      <select>
+      <select class="form-input" style="width: 100px">
         <option value="1">DNI</option>
         <option value="1">CE</option>
       </select>
-      <input type="text">
+      <input type="text"  class="form-input" style="width: 200px">
       <button>Buscar</button>
     </div>
-    <div>
-      <div>
+    <div class="display-flex">
+      <div class="general-data">
         <div class="row">
-          <label>Socio</label>
-          <input type="text">
+          <label>Socio: </label>
+          <input type="text" class="form-input">
         </div>
         <div class="row">
-          <label>Cuenta</label>
-          <input type="text">
+          <label>Cuenta: </label>
+          <input type="text" class="form-input">
         </div>
         <div class="row">
-          <label>Monto</label>
-          <div>
-            <input type="text">
-            <span>Soles</span>
+          <label>Monto: </label>
+          <div class="display-flex full-width align-item-center">
+            <input type="text" style="flex: 1 1 auto;" class="form-input">
+            <span style="flex: 0 0 30px;">Soles</span>
           </div>
         </div>
         <div class="row">
           <button>Pagar</button>
         </div>
       </div>
-      <div>
-        <h2>Estado del aporte</h2>
-        <div class="estado-aporte">
-          <div *ngFor="let item "></div>
+      <div class="estado-aporte">
+        <h2 class="ta-center">Estado del aporte</h2><br>
+        <div class="ta-center">
+          <select (change)="onChangeYear(year.value)" #year class="form-input full-width">
+            <option value="2017">2017</option>
+            <option value="2016">2016</option>
+          </select>
+        </div>
+        <br>
+        <div class="month-wrap">
+          <div *ngFor="let item of acountStateFilteredList" class="month">
+            <div class="label">{{item.month.shorName}}</div>
+            <div class="box"
+                 [class.state-pagado]="item.state === 1"
+                 [class.state-vencido]="item.state === 2"
+                 [class.state-por-vencer]="item.state === 3"></div>
+          </div>
         </div>
       </div>
     </div>
