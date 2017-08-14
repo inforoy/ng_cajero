@@ -1,88 +1,116 @@
-<div class="app-wrap">
+<div class="app-wrap" [ngClass]="{close: toggle}">
   <div class="app-logo">
-    <h3>LOGO</h3>
+    <h3>E-ATM</h3>
   </div>
   <div class="app-header">
     <div class="toggle">
-      <a href="#" class="material-icons">view_list</a>
+      <a href="#" class="material-icons" (click)="toggleSidebar($event)">view_list</a>
     </div>
     <div class="right">
       <div class="date">
         11-08-2017
       </div>
-      <div class="user" class="material-icons">account_circle</div>
+      <div class="user">
+        <span class="material-icons">account_circle</span><br>
+        <span>User Name</span>
+      </div>
     </div>
   </div>
   <div class="app-nav-bar">
     <ul>
       <li>
-        <a href="#"><span class="icon"></span>DASHBOARD</a>
+        <a href="#">DASHBOARD</a>
       </li>
       <li>
-        <a href="#"><span class="icon"></span>OPERACIONES</a>
+        <a href="#">OPERACIONES</a>
         <ul>
-          <li><a href="#">Abono</a></li>
-          <li><a href="#">Deposito</a></li>
-          <li><a href="#">Retiro</a></li>
-          <li><a href="#">Aportes</a></li>
-          <li><a href="#">Transacciones</a></li>
+          <li><a href="#"><span class="icon"></span> Abono</a></li>
+          <li><a href="#"><span class="icon"></span> Deposito</a></li>
+          <li><a href="#"><span class="icon"></span> Retiro</a></li>
+          <li><a href="#"><span class="icon"></span> Aportes</a></li>
+          <li><a href="#"><span class="icon"></span> Transacciones</a></li>
         </ul>
       </li>
       <li>
-        <a href="#"><span class="icon"></span>CAJA</a>
+        <a href="#">CAJA</a>
         <ul>
-          <li><a href="#">Apertura</a></li>
-          <li><a href="#">Cierre</a></li>
+          <li><a href="#"><span class="icon"></span>Apertura</a></li>
+          <li><a href="#"><span class="icon"></span>Cierre</a></li>
         </ul>
       </li>
     </ul>
   </div>
   <div class="app-content">
-    <div>
-      <select class="form-input" style="width: 100px">
-        <option value="1">DNI</option>
-        <option value="1">CE</option>
-      </select>
-      <input type="text"  class="form-input" style="width: 200px">
-      <button>Buscar</button>
+    <div fxLayout="row" fxLayoutGap="10px">
+      <div fxFlex="0 0 20%">
+        <label>Tipo de documento</label>
+        <select class="form-control">
+          <option value="1">DNI</option>
+          <option value="1">CE</option>
+        </select>
+      </div>
+      <div fxFlex="0 0 38%">
+        <label>Número de documento</label>
+        <input type="text"  class="form-control" value="11111111" #numDoc autofocus>
+      </div>
+      <div fxFlex="0 0 20%">
+        <label>&nbsp;</label><br>
+        <button md-raised-button color="primary" (click)="search(numDoc.value)">Buscar</button>
+      </div>
     </div>
-    <div class="display-flex">
-      <div class="general-data">
+
+    <!--Customer data-->
+    <div fxLayout="row"  fxLayoutGap="10px" *ngIf="person">
+      <div fxFlex="1 1 60%">
         <div class="row">
-          <label>Socio: </label>
-          <input type="text" class="form-input">
+          <label>Socio</label>
+          <input type="text" class="form-control" [value]="person.fullName">
         </div>
         <div class="row">
-          <label>Cuenta: </label>
-          <input type="text" class="form-input">
+          <label>Cuenta</label>
+          <input type="text" class="form-control" [value]="person.accountNumber">
         </div>
         <div class="row">
-          <label>Monto: </label>
-          <div class="display-flex full-width align-item-center">
-            <input type="text" style="flex: 1 1 auto;" class="form-input">
-            <span style="flex: 0 0 30px;">Soles</span>
+          <label>Monto</label>
+          <div class="input-group">
+            <input type="text" class="form-control"  [value]="person.amount">
+            <span class="input-group-addon" *ngIf="person.moneyType === 1">Soles</span>
+            <span class="input-group-addon" *ngIf="person.moneyType === 2">Dólares</span>
           </div>
         </div>
         <div class="row">
-          <button>Pagar</button>
+          <button md-raised-button color="primary">Pagar</button>
         </div>
       </div>
-      <div class="estado-aporte">
-        <h2 class="ta-center">Estado del aporte</h2><br>
-        <div class="ta-center">
-          <select (change)="onChangeYear(year.value)" #year class="form-input full-width">
-            <option value="2017">2017</option>
-            <option value="2016">2016</option>
-          </select>
-        </div>
-        <br>
-        <div class="month-wrap">
-          <div *ngFor="let item of acountStateFilteredList" class="month">
-            <div class="label">{{item.month.shorName}}</div>
-            <div class="box"
-                 [class.state-pagado]="item.state === 1"
-                 [class.state-vencido]="item.state === 2"
-                 [class.state-por-vencer]="item.state === 3"></div>
+      <div fxFlex="1 1 20%"></div>
+      <div fxFlex="0 0 20%">
+        <div class="field-group">
+          <div class="field-group-header">
+            <div class="title">
+              Estado del aporte
+            </div>
+          </div>
+          <div class="field-group-content">
+            <div class="ta-center">
+              <select (change)="onChangeYear(year.value)" #year class="form-control">
+                <option value="2017">2017</option>
+                <option value="2016">2016</option>
+              </select>
+            </div>
+            <br>
+            <div class="month-wrap">
+              <div *ngFor="let item of acountStateFilteredList" class="month">
+                <div class="label">{{item.month.shorName}}</div>
+                <div class="box"
+                     [class.state-pagado]="item.state === 1"
+                     [class.state-vencido]="item.state === 2"
+                     [class.state-por-vencer]="item.state === 3">
+                  <span class="material-icons icon" *ngIf="item.state === 1">check</span>
+                  <span class="material-icons icon" *ngIf="item.state === 2">close</span>
+                  <span class="material-icons icon" *ngIf="item.state === 3">-</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

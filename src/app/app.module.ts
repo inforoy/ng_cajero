@@ -2,7 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import {MdIconModule} from '@angular/material';
+import {MdButtonModule, MdIconModule} from '@angular/material';
+import {HttpModule} from '@angular/http';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -10,7 +12,10 @@ import {MdIconModule} from '@angular/material';
   ],
   imports: [
     BrowserModule,
-    MdIconModule
+    MdIconModule,
+    MdButtonModule,
+    HttpModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

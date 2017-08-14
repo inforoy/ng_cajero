@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+/*@import "../node_modules/@angular/material/prebuilt-themes/purple-green.css";*/
 *{
   margin: 0px;
   padding: 0px;
@@ -25,21 +26,28 @@ html, body, .app-wrap{
   display: grid;
   grid-template-columns: 200px auto;
   grid-template-rows: 70px auto;
+  background-color: #F2F2F2;
 }
 
 .app-logo {
   display: flex;
   align-items: center;
-  background-color: #090;
   justify-content: center;
 }
+
+.app-wrap.close{
+  grid-template-columns: 0px auto;
+}
+
+
 
 /*
 *Header
 */
 .app-header{
-  background-color: #068;
+  background-color: #00897B;
   display: flex;
+  transition: all 1s;
 }
 .app-header .toggle{
   display: flex;
@@ -50,6 +58,7 @@ html, body, .app-wrap{
 
 .app-header .toggle a{
   text-decoration: none;
+  color: #000;
 }
 
 .app-header .right{
@@ -65,13 +74,14 @@ html, body, .app-wrap{
 
 .app-header .user{
   flex: 0 0 150px;
+  text-align: center;
 }
 
 /*
 *Navbar
 */
 .app-nav-bar{
-  background-color: #009688;
+  background-color: #00897B;
 }
 
 .app-nav-bar a{
@@ -112,16 +122,11 @@ html, body, .app-wrap{
 *Content
 */
 .row{
-  display: flex;
   margin-top: 20px;
   align-items: center;
 }
 .row label{
-  text-align: right;
-  flex: 0 0 100px;
-}
-.row input{
-  flex: 1 1 auto;
+  display: block;
 }
 /*
 *Content
@@ -152,9 +157,21 @@ html, body, .app-wrap{
 .month:not(:last-child){
   margin-right: 10px;
 }
+.month {
+  margin-bottom: 15px;
+}
 .box{
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box .icon {
+  font-size: 2em;
+  color: #ffffff;
+
 }
 .month .label{
   text-align: center;
@@ -173,8 +190,29 @@ html, body, .app-wrap{
   width: 100%;
 }
 
-.form-input{
+.form-control{
   padding: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input-group {
+  position: relative;
+  display: table;
+  width: 100%;
+}
+.input-group-addon {
+  display: table-cell;
+  text-align: center;
+  border-top: 1px solid #A9A9A9;
+  border-bottom: 1px solid #A9A9A9;
+  border-right: 1px solid #A9A9A9;
+  line-height: 1;
+  padding: 8px;
+  box-sizing: border-box;
+  width: 1%;
+  white-space: nowrap;
+  vertical-align: middle;
 }
 
 .ta-center{
@@ -189,7 +227,26 @@ html, body, .app-wrap{
   align-items: center;
 }
 
-.estado-aporte{
-  flex: 0 0 30% ;
+.field-group{
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  position: relative;
+  margin-top: 15px;
+}
+
+.field-group-header{
+  position: absolute;
+  top: -10px;
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+.field-group-header .title{
+  display: inline-block;
+  background-color: #F2F2F2;
+}
+.field-group-content{
+  margin-top: 10px;
   padding: 10px;
 }
