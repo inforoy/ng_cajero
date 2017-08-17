@@ -44,32 +44,32 @@ export class AppComponent implements OnInit {
       {year: 2017, month: {shorName: 'OCT'}, state: 3},
       {year: 2017, month: {shorName: 'NOV'}, state: 3},
       {year: 2017, month: {shorName: 'DIC'}, state: 3},
-      {year: 2016, month: {shorName: 'ENE'}, state: 2},
-      {year: 2016, month: {shorName: 'FEB'}, state: 2},
+      {year: 2016, month: {shorName: 'ENE'}, state: 1},
+      {year: 2016, month: {shorName: 'FEB'}, state: 1},
       {year: 2016, month: {shorName: 'MAR'}, state: 1},
       {year: 2016, month: {shorName: 'ABR'}, state: 1},
       {year: 2016, month: {shorName: 'MAY'}, state: 1},
-      {year: 2016, month: {shorName: 'JUN'}, state: 2},
-      {year: 2016, month: {shorName: 'JUL'}, state: 2},
-      {year: 2016, month: {shorName: 'AGO'}, state: 3},
+      {year: 2016, month: {shorName: 'JUN'}, state: 1},
+      {year: 2016, month: {shorName: 'JUL'}, state: 1},
+      {year: 2016, month: {shorName: 'AGO'}, state: 1},
       {year: 2016, month: {shorName: 'SET'}, state: 1},
       {year: 2016, month: {shorName: 'OCT'}, state: 1},
-      {year: 2016, month: {shorName: 'NOV'}, state: 3},
-      {year: 2016, month: {shorName: 'DIC'}, state: 3},
+      {year: 2016, month: {shorName: 'NOV'}, state: 1},
+      {year: 2016, month: {shorName: 'DIC'}, state: 1},
     ];
 
     this.personList = [
       {
         numDoc: '11111111',
-        fullName: 'Cristian Quispe Ramirez',
-        accountNumber: '2515487-544-5154',
+        fullName: 'CRISTIAN QUISPE RAMIREZ',
+        accountNumber: '180-001-1-00001026',
         amount: '200.00',
         moneyType: 2
       },
       {
         numDoc: '22222222',
-        fullName: 'Roy Apellidos',
-        accountNumber: '2515-544-5154',
+        fullName: 'ROY W. CALLE SULCA',
+        accountNumber: '180-001-1-00001027',
         amount: '1800.00',
         moneyType: 1
       }
