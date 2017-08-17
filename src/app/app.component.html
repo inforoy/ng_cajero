@@ -2,6 +2,7 @@
   <div class="app-logo">
     <h3>E-ATM</h3>
   </div>
+  <!--Header-->
   <div class="app-header">
     <div class="toggle">
       <a href="#" class="material-icons" (click)="toggleSidebar($event)">view_list</a>
@@ -16,6 +17,8 @@
       </div>
     </div>
   </div>
+
+  <!--Nav bar-->
   <div class="app-nav-bar">
     <ul>
       <li>
@@ -40,51 +43,63 @@
       </li>
     </ul>
   </div>
+
+  <!--Content-->
   <div class="app-content">
     <div fxLayout="row" fxLayoutGap="10px">
-      <div fxFlex="0 0 20%">
-        <label>Tipo de documento</label>
-        <select class="form-control">
-          <option value="1">DNI</option>
-          <option value="1">CE</option>
-        </select>
-      </div>
-      <div fxFlex="0 0 38%">
-        <label>Número de documento</label>
-        <input type="text"  class="form-control" value="11111111" #numDoc autofocus>
-      </div>
-      <div fxFlex="0 0 20%">
-        <label>&nbsp;</label><br>
-        <button md-raised-button color="primary" (click)="search(numDoc.value)">Buscar</button>
-      </div>
-    </div>
-
-    <!--Customer data-->
-    <div fxLayout="row"  fxLayoutGap="10px" *ngIf="person">
+      <!--Left-->
       <div fxFlex="1 1 60%">
-        <div class="row">
-          <label>Socio</label>
-          <input type="text" class="form-control" [value]="person.fullName">
-        </div>
-        <div class="row">
-          <label>Cuenta</label>
-          <input type="text" class="form-control" [value]="person.accountNumber">
-        </div>
-        <div class="row">
-          <label>Monto</label>
-          <div class="input-group">
-            <input type="text" class="form-control"  [value]="person.amount">
-            <span class="input-group-addon" *ngIf="person.moneyType === 1">Soles</span>
-            <span class="input-group-addon" *ngIf="person.moneyType === 2">Dólares</span>
+        <!--Searcher-->
+        <div fxLayout="row" fxLayoutGap="10px">
+          <div fxFlex="0 0 40%">
+            <label>Tipo de documento</label>
+            <select class="form-control">
+              <option value="1">DNI</option>
+              <option value="1">CE</option>
+            </select>
+          </div>
+          <div fxFlex="0 0 40%">
+            <label>Número de documento</label>
+            <input type="text"  class="form-control" value="11111111" #numDoc autofocus>
+          </div>
+          <div fxFlex="0 0 20%">
+            <label>&nbsp;</label><br>
+            <button md-raised-button color="primary" (click)="search(numDoc.value)">Buscar</button>
           </div>
         </div>
-        <div class="row">
-          <button md-raised-button color="primary">Pagar</button>
+
+        <!--Customer data-->
+        <div *ngIf="person">
+          <div class="row">
+            <label>Socio</label>
+            <input type="text" class="form-control" [value]="person.fullName">
+          </div>
+          <div class="row">
+            <label>Cuenta</label>
+            <input type="text" class="form-control" [value]="person.accountNumber">
+          </div>
+          <div class="row">
+            <label>Monto</label>
+            <div class="input-group">
+              <input type="text" class="form-control"  [value]="person.amount">
+              <span class="input-group-addon" *ngIf="person.moneyType === 1">Soles</span>
+              <span class="input-group-addon" *ngIf="person.moneyType === 2">Dólares</span>
+            </div>
+          </div>
+          <div class="row">
+            <button md-raised-button color="primary">Pagar</button>
+          </div>
         </div>
       </div>
-      <div fxFlex="1 1 20%"></div>
+
+      <!--Gap-->
+      <div fxFlex="1 1 20%">
+      </div>
+
+      <!--Right-->
       <div fxFlex="0 0 20%">
-        <div class="field-group">
+        <!--Aport state-->
+        <div class="field-group" *ngIf="person">
           <div class="field-group-header">
             <div class="title">
               Estado del aporte
