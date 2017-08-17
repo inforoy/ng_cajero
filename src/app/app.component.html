@@ -30,7 +30,11 @@
           <li><a href="#"><i class="material-icons md-15">account_balance</i> Abono</a></li>
           <li><a href="#"><i class="material-icons md-15">account_balance</i> Deposito</a></li>
           <li><a href="#"><i class="material-icons md-15">account_balance</i> Retiro</a></li>
-          <li><a href="#"><i class="material-icons md-15">account_balance</i> Aportes</a></li>
+          
+		  <li style="background:#004D40">
+			<a href="#"><i class="material-icons md-15">account_balance</i> Aportes</a>
+		  </li>
+		  
           <li><a href="#"><i class="material-icons md-15">account_balance</i> Transacciones</a></li>
         </ul>
       </li>
@@ -75,11 +79,11 @@
         <div *ngIf="person">
           <div class="row">
             <label>Socio</label>
-            <input type="text" class="form-control" [value]="person.fullName">
+            <input type="text" class="form-control" [value]="person.fullName" readonly>
           </div>
           <div class="row">
             <label>Cuenta</label>
-            <input type="text" class="form-control" [value]="person.accountNumber">
+            <input type="text" class="form-control" [value]="person.accountNumber" readonly>
           </div>
           <div class="row">
             <label>Monto</label>
